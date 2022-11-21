@@ -1,7 +1,12 @@
 <script>
 import {store} from '../data/store'
+import CardComponent from '../components/CardComponent.vue'
 export default {
   name:'AppMain',
+  components:{
+    CardComponent
+  },
+
   data(){
     return {
       store
@@ -15,7 +20,9 @@ export default {
 <template>
   <main>
     <div class="row">
-      <!--ciclo-->
+
+      <CardComponent v-for="film in store.listaFilm.results" :card="film"/>
+
     </div>
   </main>
 
@@ -23,6 +30,6 @@ export default {
 </template>
 
 
-<style>
+<style lang="scss" scoped>
 
 </style>

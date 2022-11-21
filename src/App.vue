@@ -11,6 +11,7 @@ export default {
     AppMain
 
   },
+  
   data(){
     return{
       store,
