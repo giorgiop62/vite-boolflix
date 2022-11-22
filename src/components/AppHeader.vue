@@ -1,8 +1,35 @@
 <script>
-export default {
-  name:'AppHeader'
+import {store} from '../data/store'
+import axsios from 'axios'
 
-}
+export default {
+  name:'AppHeader',
+  
+  data(){
+    return{
+      store,
+      ricerca:''
+    }
+  },
+  methods:{
+    search(){
+      let apiUrlcercaUtente = store.apiUrlRicerca + this.ricerca
+    
+      
+      axios.get(apiUrlcercaUtente)
+      .then(result => {
+        store.listaFilmCercati = result.data
+        console.log(result.data)
+
+      })
+      .catch(error =>{
+        console.log(error)
+      })
+    }
+
+    }
+  }
+
 </script>
 
 

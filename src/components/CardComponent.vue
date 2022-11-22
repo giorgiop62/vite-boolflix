@@ -41,9 +41,14 @@ export default {
 <style lang="scss" scoped>
 .sc-card {
 
-}
-img {
-  width: 100px;
+  flex-basis: 25%;
+  min-height: 300px;
+  padding: 15px;
+  text-align: center;
+  img {
+    max-width: 200px;
+  }
+
 }
 
 
