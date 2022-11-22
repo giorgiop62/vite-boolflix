@@ -1,10 +1,10 @@
 <script>
 import {store} from '../data/store'
-import axsios from 'axios'
+import axios from 'axios'
 
 export default {
   name:'AppHeader',
-  
+
   data(){
     return{
       store,
@@ -13,10 +13,10 @@ export default {
   },
   methods:{
     search(){
-      let apiUrlcercaUtente = store.apiUrlRicerca + this.ricerca
+      let apiUrlRicercaUtente = store.apiUrlRicerca + this.ricerca
     
       
-      axios.get(apiUrlcercaUtente)
+      axios.get(apiUrlRicercaUtente)
       .then(result => {
         store.listaFilmCercati = result.data
         console.log(result.data)
@@ -41,7 +41,7 @@ export default {
     <div class="search">
       <div class="input-group">
       <div class="form-outline">
-      <input type="search" placeholder="search" id="form1" class="form-control" />
+      <input type="search" v-on:keyup.enter="search()" v-model="ricerca" placeholder="Search" id="form1" class="form-control" />
     </div>
 </div>
 

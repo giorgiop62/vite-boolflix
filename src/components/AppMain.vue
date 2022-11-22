@@ -19,9 +19,13 @@ export default {
 
 <template>
   <main>
-    <div class="row">
+    <div class="row ">
 
-      <CardComponent v-for="film in store.listaFilm.results" :card="film"/>
+      <CardComponent v-for="film  in store.listaFilm.results" :key="film.id" :card="film"/>
+
+      <CardComponent v-for ="filmCercati in store.listaFilmCercati" :key="filmCercati.id"     
+       :card="filmCercati" />
+
 
     </div>
   </main>
