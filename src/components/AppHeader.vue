@@ -24,9 +24,9 @@ export default {
     <div class="menu">
       <nav>
         <ul>
-          <li>Home</li>
-          <li @click="$emit('searchTV')">Serie Tv</li>
-          <li @click="$emit('searchMovies')">Film</li>
+          <li @click="$emit('navToHome')">Home</li>
+          <li @click="$emit('navToTV')">Serie TV</li>
+          <li @click="$emit('navToMovies')">Film</li>
           <li>La mia lista</li>
         </ul>
       </nav>
