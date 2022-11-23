@@ -25,8 +25,8 @@ export default {
       <nav>
         <ul>
           <li>Home</li>
-          <li v-on:click="$emit('search')">Serie Tv</li>
-          <li v-on:click="$emit('search')">Film</li>
+          <li @click="$emit('searchTV')">Serie Tv</li>
+          <li @click="$emit('searchMovies')">Film</li>
           <li>La mia lista</li>
         </ul>
       </nav>

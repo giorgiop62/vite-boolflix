@@ -24,7 +24,7 @@ export default {
      
       <CardComponent  :card="film" v-for="film  in store.movie" :key="film.id"/>
 
-
+      
       <CardComponent  :card="film" v-for="film  in store.tv" :key="film.id"/>
 
 

@@ -42,8 +42,19 @@ export default {
     startSearch(){
       this.getApi();
 
+    },
+    searchTv(){
+      
+      
+
+    },
+    searchMovies(){
+
+    },
+    reset(){
 
     }
+    
   },
 
   mounted(){
@@ -56,7 +67,7 @@ export default {
 
 
 <template>
-  <AppHeader @search="startSearch" />
+  <AppHeader @search="startSearch" @searchTv="searchTv" @searchMovies="searchMovies" @reset="reset" />
   <AppMain/>
 
   
