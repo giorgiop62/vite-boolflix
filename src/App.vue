@@ -21,22 +21,33 @@ export default {
   },
 
   methods:{
-    getMovies(){
-      console.log(store.apiUrl);
-      axios.get(store.apiUrl)
-      .then(result => {
-        store.listaFilm = result.data
-        console.log(result.data)
+    getApi(route = '/search/multi'){
+      axios.get(store.baseUrl + route, {params: store.apiParams})
+      .then(res => {
+        if (route == '/movie/popular') {
+          store.movie = res.data.results;
+          return;
+        }
 
+        store.movie = res.data.results.filter(item => item.media_type == 'movie');
+        store.tv    = res.data.results.filter(item => item.media_type == 'tv');
+
+        console.log( store.movie);
+        console.log( store.tv);
       })
       .catch(error =>{
         console.log(error)
       })
+    },
+    startSearch(){
+      this.getApi();
+
+
     }
   },
 
   mounted(){
-    this.getMovies();
+    this.getApi('/movie/popular');
   }
 
 
@@ -45,8 +56,8 @@ export default {
 
 
 <template>
-  <AppHeader />
-  <AppMain />
+  <AppHeader @search="startSearch" />
+  <AppMain/>
 
   
 </template>
